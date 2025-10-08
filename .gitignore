@@ -5,3 +5,4 @@ flamework.build
 sourcemap.json
 *.tsbuildinfo
 *.env
+package-lock.json

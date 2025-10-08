@@ -4,7 +4,7 @@ import { RootState } from "..";
 
 const initState = {
 	Page: Pages.None,
-	PreviosPage: Pages.None,
+	PreviousPage: Pages.None,
 	IsLocked: false,
 };
 
@@ -15,20 +15,20 @@ export const PageSlice = createProducer(initState, {
 		return {
 			...state,
 			Page: page,
-			PreviosPage: state.Page,
+			PreviousPage: state.Page,
 		};
 	},
 
 	SwitchPage: (state, page: Pages) => {
 		if (state.IsLocked) return state;
 		return page === state.Page
-			? { ...state, Page: Pages.None, PreviosPage: state.Page }
-			: { ...state, Page: page, PreviosPage: state.Page };
+			? { ...state, Page: Pages.None, PreviousPage: state.Page }
+			: { ...state, Page: page, PreviousPage: state.Page };
 	},
 
 	ClearPage: (state) => {
 		if (state.IsLocked) return state;
-		return { ...state, Page: Pages.None, PreviosPage: state.Page };
+		return { ...state, Page: Pages.None, PreviousPage: state.Page };
 	},
 
 	SetLockPage: (state, isLocked: boolean) => {

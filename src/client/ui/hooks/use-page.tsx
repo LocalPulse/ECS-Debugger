@@ -6,7 +6,7 @@ import { SelectPage } from "../store/slices/page-slice";
 import { useAppSelector, useAppSelectorBinding } from "./reflex-hooks";
 
 export const usePage = (page: Pages, timeToClose?: number, onChangedState?: (isOpen: boolean) => void) => {
-	const previosPage = useAppSelector((state) => state.page.PreviosPage);
+	const previosPage = useAppSelector((state) => state.page.PreviousPage);
 	const currentPage = useAppSelector(SelectPage);
 	const isOpen = page === currentPage;
 
@@ -28,7 +28,7 @@ export const usePage = (page: Pages, timeToClose?: number, onChangedState?: (isO
 };
 
 export const usePageBinding = (page: Pages, timeToClose?: number, onChangedState?: (isOpen: boolean) => void) => {
-	const previosPage = useAppSelectorBinding((state) => state.page.PreviosPage);
+	const previosPage = useAppSelectorBinding((state) => state.page.PreviousPage);
 	const currentPage = useAppSelectorBinding(SelectPage);
 	const [visible, setVisible] = useBinding(currentPage.getValue() === page);
 
